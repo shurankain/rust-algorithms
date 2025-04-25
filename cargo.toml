@@ -1,0 +1,17 @@
+[workspace]
+members = [
+    "sorting",
+    "searching",
+    "graphs",
+    "dynamic_programming",
+    "greedy",
+    "divide_and_conquer",
+    "backtracking",
+    "hashing",
+    "strings",
+    "geometry",
+    "crypto",
+    "ml_basics",
+    "shared_utils",
+    "playground"
+]

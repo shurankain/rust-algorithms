@@ -1,0 +1,19 @@
+[package]
+name = "playground"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sorting = { path = "../sorting" }
+searching = { path = "../searching" }
+graphs = { path = "../graphs" }
+dynamic_programming = { path = "../dynamic_programming" }
+greedy = { path = "../greedy" }
+divide_and_conquer = { path = "../divide_and_conquer" }
+backtracking = { path = "../backtracking" }
+hashing = { path = "../hashing" }
+strings = { path = "../strings" }
+geometry = { path = "../geometry" }
+crypto = { path = "../crypto" }
+ml_basics = { path = "../ml_basics" }
+shared_utils = { path = "../shared_utils" }

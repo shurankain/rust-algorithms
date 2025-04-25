@@ -1,0 +1,6 @@
+[package]
+name = "divide_and_conquer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]

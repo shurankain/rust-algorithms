@@ -1,0 +1,14 @@
+# Rust
+/target
+**/*.rs.bk
+
+# IntelliJ / CLion / VS Code
+.idea/
+.vscode/
+*.swp
+
+# macOS
+.DS_Store
+
+# By default, cargo will automatically generate a lockfile for binary crates.
+Cargo.lock
