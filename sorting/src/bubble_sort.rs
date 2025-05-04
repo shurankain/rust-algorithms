@@ -29,27 +29,27 @@ mod tests {
         let mut input = [1, 7, 3, 55, 12, 14, 2];
         bubble_sort(&mut input);
         println!("{:#?}", input);
-        assert_eq!(input, [1, 2, 3, 7, 12, 14, 55]);
+        assert_eq!([1, 2, 3, 7, 12, 14, 55], input);
     }
 
     #[test]
     fn already_sorted() {
         let mut input = [1, 2, 3, 4];
         bubble_sort(&mut input);
-        assert_eq!(input, [1, 2, 3, 4]);
+        assert_eq!([1, 2, 3, 4], input);
     }
 
     #[test]
     fn reversed() {
         let mut input = [9, 8, 7, 6];
         bubble_sort(&mut input);
-        assert_eq!(input, [6, 7, 8, 9]);
+        assert_eq!([6, 7, 8, 9], input);
     }
 
     #[test]
     fn empty() {
         let mut input: [i32; 0] = [];
         bubble_sort(&mut input);
-        assert_eq!(input, []);
+        assert!(input.is_empty());
     }
 }
