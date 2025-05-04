@@ -36,8 +36,9 @@ mod test {
     #[test]
     fn test() {
         let mut input = [12, 1, 34, 23, 6, 52, 74, 9];
+        let expected = vec![1, 6, 9, 12, 23, 34, 52, 74];
 
-        let output = merge_sort(&mut input);
-        assert_eq!(output, [1, 6, 9, 12, 23, 34, 52, 74]);
+        let actual = merge_sort(&mut input);
+        assert_eq!(expected, actual);
     }
 }
