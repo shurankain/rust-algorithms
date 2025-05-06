@@ -34,6 +34,27 @@ pub fn z_function(s: &str) -> Vec<usize> {
     z
 }
 
+pub fn find_pattern_with_z(pattern: &str, text: &str) -> Vec<usize> {
+    let combined = format!("{}${}", pattern, text); // adding search string as a prefix
+
+    // alternative better option, avoids allocation on string recreation as before
+    // let mut combined = String::with_capacity(pattern.len() + 1 + text.len());
+    // combined.push_str(pattern);
+    // combined.push('$');
+    // combined.push_str(text);
+    let z = z_function(&combined); // sending it to a search function
+    let p_len = pattern.len();
+    let mut result = Vec::new();
+
+    for (i, z) in z.iter().enumerate().skip(p_len + 1) {
+        if *z == p_len {
+            result.push(i - p_len - 1); // позиция в оригинальном тексте
+        }
+    }
+
+    result
+}
+
 #[cfg(test)]
 mod test {
     use super::*;
@@ -54,5 +75,14 @@ mod test {
         let output = z_function(input);
 
         assert_eq!(vec![0, 0, 2, 0, 0, 4, 0, 2, 0, 0], output);
+    }
+
+    #[test]
+    fn test_find_pattern_with_z() {
+        let pattern = "abc";
+        let text = "abxabcabcaby";
+        let result = find_pattern_with_z(pattern, text);
+
+        assert_eq!(vec![3, 6], result);
     }
 }
