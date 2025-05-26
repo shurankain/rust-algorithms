@@ -1,4 +1,4 @@
-// Данная реализация - алгоритм Крускала для не числовых вершин (см. тесты). Логика та же
+// Kruskal for non numeric nodes (see tests). Same logic
 use crate::union_find::UnionFind;
 use std::collections::HashMap;
 
@@ -22,13 +22,12 @@ impl PartialOrd for NamedEdge {
     }
 }
 
-/// Kruskal для нечисловых (именованных) вершин.
-/// Возвращает MST в виде кортежей (from, to, weight).
+// Reurns MST as tuples (from, to, weight).
 pub fn kruskal_named(edges: Vec<NamedEdge>) -> Vec<(String, String, i32)> {
     let mut map: HashMap<String, usize> = HashMap::new();
     let mut id_counter = 0;
 
-    // Назначаем индекс каждой уникальной вершине
+    // Setting index for each unique node
     for edge in &edges {
         for node in [&edge.from, &edge.to] {
             if !map.contains_key(node) {

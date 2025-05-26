@@ -1,4 +1,4 @@
-// Данная реализация - алгоритм Крускала для числовых вершин (см. тесты). Логика та же
+// Kruskal for numeric modes (see tests). Same logic
 use crate::union_find::UnionFind;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -8,7 +8,7 @@ pub struct Edge {
     pub weight: i32,
 }
 
-// Для сортировки рёбер по весу
+// Edge sorting by weight
 impl Ord for Edge {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
         self.weight.cmp(&other.weight)
@@ -21,10 +21,9 @@ impl PartialOrd for Edge {
     }
 }
 
-/// Принимает количество вершин и вектор рёбер.
-/// Возвращает вектор рёбер, образующих минимальное остовное дерево (MST).
+/// Returns MST.
 pub fn kruskal(n_vertices: usize, mut edges: Vec<Edge>) -> Vec<Edge> {
-    edges.sort(); // по возрастанию веса
+    edges.sort(); // be weight ascending
 
     let mut uf = UnionFind::new(n_vertices);
     let mut mst = Vec::new();
@@ -34,7 +33,7 @@ pub fn kruskal(n_vertices: usize, mut edges: Vec<Edge>) -> Vec<Edge> {
             mst.push(edge);
         }
         if mst.len() == n_vertices - 1 {
-            break; // достаточно рёбер
+            break; // enough edges
         }
     }
 
@@ -88,7 +87,7 @@ mod tests {
         let mst = kruskal(6, edges);
         let total_weight: i32 = mst.iter().map(|e| e.weight).sum();
 
-        assert_eq!(mst.len(), 5); // для 6 вершин
+        assert_eq!(mst.len(), 5); // for 6 nodes
         assert_eq!(total_weight, 14);
     }
 }

@@ -17,12 +17,17 @@ pub struct Segment {
 fn segments_intersect(a: Segment, b: Segment) -> bool {
     fn orientation(p: Point, q: Point, r: Point) -> i32 {
         let val = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y);
-        if val.abs() < 1e-9 { 0 } else if val > 0.0 { 1 } else { 2 }
+        if val.abs() < 1e-9 {
+            0
+        } else if val > 0.0 {
+            1
+        } else {
+            2
+        }
     }
 
     fn on_segment(p: Point, q: Point, r: Point) -> bool {
-        q.x.min(r.x) <= p.x && p.x <= q.x.max(r.x) &&
-        q.y.min(r.y) <= p.y && p.y <= q.y.max(r.y)
+        q.x.min(r.x) <= p.x && p.x <= q.x.max(r.x) && q.y.min(r.y) <= p.y && p.y <= q.y.max(r.y)
     }
 
     let (p1, q1, p2, q2) = (a.p1, a.p2, b.p1, b.p2);
@@ -51,7 +56,7 @@ pub fn find_intersections(segments: &[Segment]) -> Vec<(usize, usize)> {
         } else {
             (seg.p2, seg.p1)
         };
-        events.push((left.x, true, *seg));  // start event
+        events.push((left.x, true, *seg)); // start event
         events.push((right.x, false, *seg)); // end event
     }
 
@@ -83,9 +88,21 @@ mod tests {
     #[test]
     fn test_intersections() {
         let segments = vec![
-            Segment { id: 0, p1: Point { x: 1.0, y: 1.0 }, p2: Point { x: 4.0, y: 4.0 } },
-            Segment { id: 1, p1: Point { x: 1.0, y: 4.0 }, p2: Point { x: 4.0, y: 1.0 } },
-            Segment { id: 2, p1: Point { x: 5.0, y: 5.0 }, p2: Point { x: 6.0, y: 6.0 } },
+            Segment {
+                id: 0,
+                p1: Point { x: 1.0, y: 1.0 },
+                p2: Point { x: 4.0, y: 4.0 },
+            },
+            Segment {
+                id: 1,
+                p1: Point { x: 1.0, y: 4.0 },
+                p2: Point { x: 4.0, y: 1.0 },
+            },
+            Segment {
+                id: 2,
+                p1: Point { x: 5.0, y: 5.0 },
+                p2: Point { x: 6.0, y: 6.0 },
+            },
         ];
 
         let result = find_intersections(&segments);

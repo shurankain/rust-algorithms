@@ -29,11 +29,7 @@ mod tests {
 
         result.sort(); // sorting externally, for test stability
 
-        let expected = vec![
-            vec!["ate", "eat", "tea"],
-            vec!["bat"],
-            vec!["nat", "tan"],
-        ];
+        let expected = vec![vec!["ate", "eat", "tea"], vec!["bat"], vec!["nat", "tan"]];
 
         let mut expected_sorted = expected
             .into_iter()

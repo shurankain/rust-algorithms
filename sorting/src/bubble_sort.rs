@@ -1,4 +1,3 @@
-/// Sorts a mutable slice (array) using the bubble sort algorithm (O(n^2)).
 pub fn bubble_sort(arr: &mut [i32]) {
     if arr.len() < 2 {
         return;

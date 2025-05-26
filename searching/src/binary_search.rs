@@ -1,6 +1,8 @@
 // `target` is only used for comparison and not returned, so it doesn't influence the output lifetime
-pub fn binary_search<'a, T>(arr: &'a[T], target: &T) -> Result<&'a T, &'static str>
-where T: Ord {
+pub fn binary_search<'a, T>(arr: &'a [T], target: &T) -> Result<&'a T, &'static str>
+where
+    T: Ord,
+{
     if arr.is_empty() {
         return Result::Err("Array is empty");
     }

@@ -29,7 +29,9 @@ pub fn reversed_polish(input: &str) -> i32 {
 
 fn pop_operands(stack: &mut Vec<i32>) -> (i32, i32) {
     let a = stack.pop().expect("expected wto operands, but zero found!");
-    let b = stack.pop().expect("expected wto operands, but only one found!");
+    let b = stack
+        .pop()
+        .expect("expected wto operands, but only one found!");
 
     (a, b)
 }

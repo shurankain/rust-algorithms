@@ -1,7 +1,6 @@
 use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
-// Данная реализация - алгоритм Прима
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Edge {
     pub from: usize,
@@ -9,7 +8,6 @@ pub struct Edge {
     pub weight: i32,
 }
 
-// Для сортировки рёбер по весу
 impl Ord for Edge {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
         self.weight.cmp(&other.weight)
@@ -22,10 +20,9 @@ impl PartialOrd for Edge {
     }
 }
 
-/// Принимает количество вершин и вектор рёбер.
-/// Возвращает вектор рёбер, образующих минимальное остовное дерево (MST).
+// Returns MST.
 pub fn prim(n_vertices: usize, mut edges: Vec<Edge>) -> Vec<Edge> {
-    edges.sort(); // по возрастанию веса
+    edges.sort(); // by weight ascending
 
     let mut mst = Vec::new();
     let mut nodes_visited: Vec<bool> = vec![false; n_vertices];
@@ -137,7 +134,7 @@ mod tests {
         let mst = prim(6, edges);
         let total_weight: i32 = mst.iter().map(|e| e.weight).sum();
 
-        assert_eq!(mst.len(), 5); // 6 вершин → 5 рёбер
+        assert_eq!(mst.len(), 5); // 6 nodes → 5 edges
         assert_eq!(total_weight, 14);
     }
 }

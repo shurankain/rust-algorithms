@@ -29,7 +29,7 @@ pub fn floyd_warshall(weights: &[Vec<i32>]) -> (Vec<Vec<i32>>, Vec<Vec<Option<us
     (dist, next)
 }
 
-/// Restoration of path from "next" table
+// Restoration of path from "next" table
 pub fn reconstruct_path(i: usize, j: usize, next: &[Vec<Option<usize>>]) -> Option<Vec<usize>> {
     next[i][j]?;
 
