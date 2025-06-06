@@ -1,3 +1,4 @@
+pub mod a_star;
 pub mod bellman_ford;
 pub mod bfs;
 pub mod dfs;
