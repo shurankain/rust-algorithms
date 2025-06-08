@@ -4,3 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+aes = "0.8"
+cbc = "0.1"
+cipher = "0.4"
