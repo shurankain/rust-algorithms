@@ -1,18 +1,4 @@
-#[derive(Debug, Clone, Copy, PartialEq)]
-pub struct Point {
-    pub x: i32,
-    pub y: i32,
-}
-
-impl Point {
-    fn orientation(a: Point, b: Point, c: Point) -> i32 {
-        (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x)
-    }
-
-    fn distance_squared(a: Point, b: Point) -> i32 {
-        (a.x - b.x).pow(2) + (a.y - b.y).pow(2)
-    }
-}
+use crate::Point;
 
 pub fn convex_hull(mut points: Vec<Point>) -> Vec<Point> {
     if points.len() < 3 {
@@ -24,7 +10,7 @@ pub fn convex_hull(mut points: Vec<Point>) -> Vec<Point> {
 
     // 2. Sorting by an angle and distance
     points.sort_by(|a, b| {
-        let orient = Point::orientation(start, *a, *b);
+        let orient = Point::cross(start, *a, *b);
         if orient == 0 {
             Point::distance_squared(start, *a).cmp(&Point::distance_squared(start, *b))
         } else {
@@ -36,7 +22,7 @@ pub fn convex_hull(mut points: Vec<Point>) -> Vec<Point> {
     let mut hull = vec![start];
     for &point in points.iter().skip(1) {
         while hull.len() >= 2
-            && Point::orientation(hull[hull.len() - 2], hull[hull.len() - 1], point) <= 0
+            && Point::cross(hull[hull.len() - 2], hull[hull.len() - 1], point) <= 0
         {
             hull.pop();
         }

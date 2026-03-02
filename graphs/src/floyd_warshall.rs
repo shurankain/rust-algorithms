@@ -68,7 +68,7 @@ mod tests {
 
         let (dist, _) = floyd_warshall(&graph);
 
-        // if и dist[i][i] < 0, than cycle is negative
+        // if dist[i][i] < 0, then cycle is negative
         for (i, val) in dist.iter().enumerate().take(3) {
             assert!(val[i] < 0);
         }

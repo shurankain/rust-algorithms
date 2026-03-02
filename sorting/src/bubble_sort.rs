@@ -24,7 +24,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
+    fn test_bubble_sort_basic() {
         let mut input = [1, 7, 3, 55, 12, 14, 2];
         bubble_sort(&mut input);
         println!("{:#?}", input);

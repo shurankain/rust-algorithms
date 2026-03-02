@@ -26,4 +26,17 @@ mod tests {
 
         assert_eq!(None, result);
     }
+
+    #[test]
+    fn test_empty() {
+        let input: Vec<i32> = vec![];
+        assert_eq!(None, linear_search(&input, 1));
+    }
+
+    #[test]
+    fn test_single() {
+        let input = vec![42];
+        assert_eq!(Some(0), linear_search(&input, 42));
+        assert_eq!(None, linear_search(&input, 1));
+    }
 }

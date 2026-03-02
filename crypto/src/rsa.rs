@@ -76,10 +76,10 @@ fn rand_prime(bits: usize, rng: &mut impl rand::RngCore) -> BigUint {
         }
         let candidate = BigUint::from_bytes_be(&bytes);
         // primal::is_prime works for u64, so check only if candidate fits
-        if let Some(candidate_u64) = candidate.to_u64_digits().first().copied() {
-            if is_prime(candidate_u64) {
-                return candidate_u64.to_biguint().unwrap();
-            }
+        if let Some(candidate_u64) = candidate.to_u64_digits().first().copied()
+            && is_prime(candidate_u64)
+        {
+            return candidate_u64.to_biguint().unwrap();
         }
     }
 }

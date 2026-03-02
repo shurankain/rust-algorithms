@@ -47,7 +47,7 @@ pub fn find_pattern_with_z(pattern: &str, text: &str) -> Vec<usize> {
 }
 
 #[cfg(test)]
-mod test {
+mod tests {
     use super::*;
 
     #[test]

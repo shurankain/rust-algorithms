@@ -71,4 +71,16 @@ mod tests {
         let sorted = vec![2, 3, 3, 5, 5, 5, 8];
         assert_eq!(radix_sort(arr), sorted);
     }
+
+    #[test]
+    fn test_radix_sort_sorted() {
+        let arr = vec![1, 2, 3, 4, 5];
+        assert_eq!(radix_sort(arr.clone()), arr);
+    }
+
+    #[test]
+    fn test_radix_sort_reverse() {
+        let arr = vec![5, 4, 3, 2, 1];
+        assert_eq!(radix_sort(arr), vec![1, 2, 3, 4, 5]);
+    }
 }

@@ -49,7 +49,7 @@ mod tests {
         let test_sha2_output = sha2(sha2_input);
 
         let sha3_input = "test";
-        let test_sha3_output = sha3(sha2_input);
+        let test_sha3_output = sha3(sha3_input);
 
         let sha2_output = sha2(sha2_input);
         let sha3_output = sha3(sha3_input);

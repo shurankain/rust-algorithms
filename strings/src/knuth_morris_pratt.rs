@@ -45,12 +45,22 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test() {
+    fn test_kmp_basic() {
         let pattern = "abc";
         let text = "asersvabcgrwgrsabcdfs";
 
         let result = knuth_morris_pratt(pattern, text);
 
         assert_eq!(6, result.unwrap());
+    }
+
+    #[test]
+    fn test_kmp_not_found() {
+        assert_eq!(None, knuth_morris_pratt("xyz", "abcdef"));
+    }
+
+    #[test]
+    fn test_kmp_empty_text() {
+        assert_eq!(None, knuth_morris_pratt("a", ""));
     }
 }

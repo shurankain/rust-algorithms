@@ -37,7 +37,7 @@ impl SuffixTree {
 
         while let Some(&c) = chars.peek() {
             if node.children.contains_key(&c) {
-                // Извлекаем edge по ключу и временно удаляем его
+                // Extract edge by key and temporarily remove it
                 let mut edge = node.children.remove(&c).unwrap();
                 let mut label_chars = edge.label.chars();
                 let mut match_len = 0;
@@ -51,11 +51,11 @@ impl SuffixTree {
                 }
 
                 if match_len == edge.label.len() {
-                    // Полное совпадение — продолжаем вглубь
-                    node.children.insert(c, edge); // Возвращаем edge обратно
+                    // Full match — continue deeper
+                    node.children.insert(c, edge); // Return edge back
                     node = node.children.get_mut(&c).unwrap().node.as_mut();
                 } else {
-                    // Расщепление ребра
+                    // Edge splitting
                     let remaining_label = edge.label[match_len..].to_string();
                     let mut split_node = Node {
                         children: HashMap::new(),
@@ -88,7 +88,7 @@ impl SuffixTree {
                     return;
                 }
             } else {
-                // Вставка нового суффикса
+                // Insert new suffix
                 let new_suffix: String = chars.collect();
                 node.children.insert(
                     c,

@@ -1,6 +1,6 @@
 // Depth-First Search (DFS) implementation for an undirected graph.
 // The graph is represented as an adjacency list: `Vec<Vec<usize>>`
-pub fn dfs(graph: &Vec<Vec<usize>>, start: usize, visited: &mut Vec<bool>) {
+pub fn dfs(graph: &[Vec<usize>], start: usize, visited: &mut Vec<bool>) {
     visited[start] = true;
     for &neighbor in &graph[start] {
         if !visited[neighbor] {
@@ -10,11 +10,11 @@ pub fn dfs(graph: &Vec<Vec<usize>>, start: usize, visited: &mut Vec<bool>) {
 }
 
 // Returns the connected component starting from a given node
-pub fn dfs_component(graph: &Vec<Vec<usize>>, start: usize) -> Vec<usize> {
+pub fn dfs_component(graph: &[Vec<usize>], start: usize) -> Vec<usize> {
     let mut visited = vec![false; graph.len()];
     let mut component = Vec::new();
 
-    fn explore(v: usize, graph: &Vec<Vec<usize>>, visited: &mut Vec<bool>, comp: &mut Vec<usize>) {
+    fn explore(v: usize, graph: &[Vec<usize>], visited: &mut Vec<bool>, comp: &mut Vec<usize>) {
         visited[v] = true;
         comp.push(v);
         for &u in &graph[v] {

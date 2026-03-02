@@ -1,10 +1,6 @@
-// `target` is only used for comparison and not returned, so it doesn't influence the output lifetime
-pub fn binary_search<'a, T>(arr: &'a [T], target: &T) -> Result<&'a T, &'static str>
-where
-    T: Ord,
-{
+pub fn binary_search<T: Ord>(arr: &[T], target: &T) -> Option<usize> {
     if arr.is_empty() {
-        return Result::Err("Array is empty");
+        return None;
     }
 
     let mut left = 0;
@@ -13,31 +9,34 @@ where
     while left <= right {
         let mid = left + (right - left) / 2;
         if arr[mid] == *target {
-            return Result::Ok(&arr[mid]);
+            return Some(mid);
         }
 
         if arr[mid] < *target {
             left = mid + 1;
         } else {
+            if mid == 0 {
+                break;
+            }
             right = mid - 1;
         }
     }
 
-    Result::Err("Not found")
+    None
 }
 
 #[cfg(test)]
-mod test {
+mod tests {
     use super::*;
 
     #[test]
-    fn test_positive_numbs() {
+    fn test_positive_numbers() {
         let input = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         let target = 6;
 
-        let result = binary_search(&input, &target).unwrap();
+        let result = binary_search(&input, &target);
 
-        assert_eq!(6, *result);
+        assert_eq!(Some(6), result);
     }
 
     #[test]
@@ -45,9 +44,9 @@ mod test {
         let input = [-3, -1, 0, 2, 7, 11];
         let target = 2;
 
-        let result = binary_search(&input, &target).unwrap();
+        let result = binary_search(&input, &target);
 
-        assert_eq!(3, *result);
+        assert_eq!(Some(3), result);
     }
 
     #[test]
@@ -55,8 +54,15 @@ mod test {
         let input = [-3, -1, 0, 2, 7, 11];
         let target = 1;
 
-        let result = binary_search(&input, &target).unwrap_err();
+        let result = binary_search(&input, &target);
 
-        assert_eq!("Not found", result);
+        assert_eq!(None, result);
+    }
+
+    #[test]
+    fn test_single() {
+        let input = [5];
+        assert_eq!(Some(0), binary_search(&input, &5));
+        assert_eq!(None, binary_search(&input, &1));
     }
 }

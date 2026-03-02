@@ -9,7 +9,7 @@ pub struct NamedEdge {
     pub weight: i32,
 }
 
-// Для сортировки по весу
+// For sorting by weight
 impl Ord for NamedEdge {
     fn cmp(&self, other: &Self) -> std::cmp::Ordering {
         self.weight.cmp(&other.weight)
@@ -22,7 +22,7 @@ impl PartialOrd for NamedEdge {
     }
 }
 
-// Reurns MST as tuples (from, to, weight).
+// Returns MST as tuples (from, to, weight).
 pub fn kruskal_named(edges: Vec<NamedEdge>) -> Vec<(String, String, i32)> {
     let mut map: HashMap<String, usize> = HashMap::new();
     let mut id_counter = 0;
@@ -99,7 +99,7 @@ mod tests {
         let mst = kruskal_named(edges);
         let total_weight: i32 = mst.iter().map(|(_, _, w)| *w).sum();
 
-        assert_eq!(mst.len(), 4); // 5 вершин → 4 ребра
+        assert_eq!(mst.len(), 4); // 5 vertices → 4 edges
         assert_eq!(total_weight, 8);
     }
 }

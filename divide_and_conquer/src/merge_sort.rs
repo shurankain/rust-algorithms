@@ -30,15 +30,27 @@ pub fn merge_sort(arr: &mut [i32]) -> Vec<i32> {
 }
 
 #[cfg(test)]
-mod test {
+mod tests {
     use super::*;
 
     #[test]
-    fn test() {
+    fn test_merge_sort_basic() {
         let mut input = [12, 1, 34, 23, 6, 52, 74, 9];
         let expected = vec![1, 6, 9, 12, 23, 34, 52, 74];
 
         let actual = merge_sort(&mut input);
         assert_eq!(expected, actual);
+    }
+
+    #[test]
+    fn test_merge_sort_empty() {
+        let mut input: [i32; 0] = [];
+        assert_eq!(Vec::<i32>::new(), merge_sort(&mut input));
+    }
+
+    #[test]
+    fn test_merge_sort_single() {
+        let mut input = [42];
+        assert_eq!(vec![42], merge_sort(&mut input));
     }
 }
