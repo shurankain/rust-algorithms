@@ -14,5 +14,7 @@ members = [
     "ml_basics",
     "shared_utils",
     "playground",
-    "ai_search"
+    "ai_search",
+    "mapf",
+    "sampling"
 ]
