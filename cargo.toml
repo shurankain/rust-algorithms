@@ -13,5 +13,6 @@ members = [
     "crypto",
     "ml_basics",
     "shared_utils",
-    "playground"
+    "playground",
+    "ai_search"
 ]
