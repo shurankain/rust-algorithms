@@ -4,3 +4,4 @@ pub mod blelloch;
 pub mod merge;
 pub mod reduction;
 pub mod scan;
+pub mod segmented;
