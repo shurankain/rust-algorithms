@@ -16,5 +16,6 @@ members = [
     "playground",
     "ai_search",
     "mapf",
-    "sampling"
+    "sampling",
+    "parallel"
 ]
