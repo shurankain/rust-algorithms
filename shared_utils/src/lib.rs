@@ -6,3 +6,4 @@ pub mod fenwick_tree;
 pub mod hyperloglog;
 pub mod interval_tree;
 pub mod segment_tree;
+pub mod trie;
