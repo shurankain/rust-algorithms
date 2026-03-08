@@ -7,4 +7,5 @@ pub mod hyperloglog;
 pub mod interval_tree;
 pub mod lru_cache;
 pub mod segment_tree;
+pub mod skip_list;
 pub mod trie;
