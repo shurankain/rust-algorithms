@@ -1,5 +1,5 @@
 // Kruskal for non numeric nodes (see tests). Same logic
-use crate::union_find::UnionFind;
+use shared_utils::union_find::UnionFind;
 use std::collections::HashMap;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

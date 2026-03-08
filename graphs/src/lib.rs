@@ -8,4 +8,6 @@ pub mod kruskal;
 pub mod kruskal_named;
 pub mod prim;
 pub mod topological_sort;
-pub mod union_find;
+
+// Re-export UnionFind from shared_utils for backward compatibility
+pub use shared_utils::union_find;

@@ -1,5 +1,5 @@
 // Kruskal for numeric modes (see tests). Same logic
-use crate::union_find::UnionFind;
+use shared_utils::union_find::UnionFind;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Edge {

@@ -9,3 +9,4 @@ pub mod lru_cache;
 pub mod segment_tree;
 pub mod skip_list;
 pub mod trie;
+pub mod union_find;
