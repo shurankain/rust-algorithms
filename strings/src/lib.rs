@@ -1,3 +1,4 @@
+pub mod aho_corasick;
 pub mod boyer_moore;
 pub mod knuth_morris_pratt;
 pub mod rabin_karp;
