@@ -1,3 +1,4 @@
+pub mod coin_change;
 pub mod edit_distance;
 pub mod fibonacci_with_memoization;
 pub mod knapsack_problem;
