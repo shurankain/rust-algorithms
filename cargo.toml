@@ -18,5 +18,6 @@ members = [
     "mapf",
     "sampling",
     "parallel",
-    "vector_search"
+    "vector_search",
+    "llm_primitives"
 ]
