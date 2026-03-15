@@ -3,11 +3,13 @@
 // Critical for RAG systems, vector databases, and LLM applications
 
 pub mod hnsw;
+pub mod ivf;
 pub mod lsh;
 pub mod product_quantization;
 pub mod similarity;
 
 pub use hnsw::{HnswConfig, HnswIndex, SearchResult, build_hnsw_index};
+pub use ivf::{ClusterStats, IvfConfig, IvfIndex, build_ivf_index};
 pub use lsh::{LshConfig, LshIndex, LshStats, build_lsh_index};
 pub use product_quantization::{MemoryUsage, PqConfig, PqIndex, build_pq_index};
 pub use similarity::{
