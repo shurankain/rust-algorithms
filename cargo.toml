@@ -17,5 +17,6 @@ members = [
     "ai_search",
     "mapf",
     "sampling",
-    "parallel"
+    "parallel",
+    "vector_search"
 ]
