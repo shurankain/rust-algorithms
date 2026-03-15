@@ -3,6 +3,7 @@
 // Based on latest research from ICML 2025 and industry trends
 
 pub mod kv_cache;
+pub mod paged_attention;
 
 pub use kv_cache::{
     KvQuantConfig, QuantBits, QuantGranularity, QuantMode, QuantParams, QuantizedKvCache,
@@ -10,4 +11,9 @@ pub use kv_cache::{
     dequantize_symmetric_int4, dequantize_symmetric_int8, quantization_error,
     quantize_asymmetric_int8, quantize_per_token_int8, quantize_symmetric_int4,
     quantize_symmetric_int8, sqnr_db,
+};
+
+pub use paged_attention::{
+    BlockAllocator, BlockTable, LogicalBlockId, PagedAttention, PagedAttentionConfig,
+    PagedAttentionError, PagedAttentionStats, PhysicalBlock, PhysicalBlockId, RefCount, SequenceId,
 };
