@@ -4,6 +4,7 @@
 
 pub mod kv_cache;
 pub mod paged_attention;
+pub mod radix_attention;
 
 pub use kv_cache::{
     KvQuantConfig, QuantBits, QuantGranularity, QuantMode, QuantParams, QuantizedKvCache,
@@ -14,6 +15,11 @@ pub use kv_cache::{
 };
 
 pub use paged_attention::{
-    BlockAllocator, BlockTable, LogicalBlockId, PagedAttention, PagedAttentionConfig,
+    BlockAllocator, BlockTable, KvData, LogicalBlockId, PagedAttention, PagedAttentionConfig,
     PagedAttentionError, PagedAttentionStats, PhysicalBlock, PhysicalBlockId, RefCount, SequenceId,
+};
+
+pub use radix_attention::{
+    NodeId, PrefixMatch, RadixAttention, RadixAttentionConfig, RadixAttentionError,
+    RadixAttentionStats, TokenId,
 };
