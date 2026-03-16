@@ -2,9 +2,15 @@
 // Building blocks for Large Language Model inference optimization
 // Based on latest research from ICML 2025 and industry trends
 
+pub mod flash_attention;
 pub mod kv_cache;
 pub mod paged_attention;
 pub mod radix_attention;
+
+pub use flash_attention::{
+    FlashAttention, FlashAttentionConfig, FlashAttentionStats, standard_attention,
+    verify_equivalence,
+};
 
 pub use kv_cache::{
     KvQuantConfig, QuantBits, QuantGranularity, QuantMode, QuantParams, QuantizedKvCache,
