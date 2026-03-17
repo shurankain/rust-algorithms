@@ -4,6 +4,7 @@
 
 pub mod flash_attention;
 pub mod kv_cache;
+pub mod multi_query_attention;
 pub mod paged_attention;
 pub mod radix_attention;
 pub mod sliding_window_attention;
@@ -34,4 +35,9 @@ pub use radix_attention::{
 pub use sliding_window_attention::{
     SlidingWindowAttention, SlidingWindowConfig, SlidingWindowStats, StreamingSlidingWindow,
     standard_sliding_window, verify_equivalence as verify_sliding_window_equivalence,
+};
+
+pub use multi_query_attention::{
+    KvCacheComparison, MqaConfig, MqaStats, MultiQueryAttention, compare_kv_cache_size,
+    standard_mha, verify_mqa_mha_equivalence,
 };
