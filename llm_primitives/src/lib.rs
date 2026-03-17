@@ -6,6 +6,7 @@ pub mod flash_attention;
 pub mod kv_cache;
 pub mod paged_attention;
 pub mod radix_attention;
+pub mod sliding_window_attention;
 
 pub use flash_attention::{
     FlashAttention, FlashAttentionConfig, FlashAttentionStats, standard_attention,
@@ -28,4 +29,9 @@ pub use paged_attention::{
 pub use radix_attention::{
     NodeId, PrefixMatch, RadixAttention, RadixAttentionConfig, RadixAttentionError,
     RadixAttentionStats, TokenId,
+};
+
+pub use sliding_window_attention::{
+    SlidingWindowAttention, SlidingWindowConfig, SlidingWindowStats, StreamingSlidingWindow,
+    standard_sliding_window, verify_equivalence as verify_sliding_window_equivalence,
 };
