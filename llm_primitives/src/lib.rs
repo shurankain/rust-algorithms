@@ -3,6 +3,7 @@
 // Based on latest research from ICML 2025 and industry trends
 
 pub mod flash_attention;
+pub mod grouped_query_attention;
 pub mod kv_cache;
 pub mod multi_query_attention;
 pub mod paged_attention;
@@ -40,4 +41,9 @@ pub use sliding_window_attention::{
 pub use multi_query_attention::{
     KvCacheComparison, MqaConfig, MqaStats, MultiQueryAttention, compare_kv_cache_size,
     standard_mha, verify_mqa_mha_equivalence,
+};
+
+pub use grouped_query_attention::{
+    AttentionType, GqaConfig, GqaKvCacheComparison, GqaStats, GroupedQueryAttention,
+    compare_attention_kv_cache, verify_gqa_mha_equivalence,
 };
