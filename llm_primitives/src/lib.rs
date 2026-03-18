@@ -8,6 +8,7 @@ pub mod kv_cache;
 pub mod multi_query_attention;
 pub mod paged_attention;
 pub mod radix_attention;
+pub mod rope;
 pub mod sliding_window_attention;
 
 pub use flash_attention::{
@@ -46,4 +47,9 @@ pub use multi_query_attention::{
 pub use grouped_query_attention::{
     AttentionType, GqaConfig, GqaKvCacheComparison, GqaStats, GroupedQueryAttention,
     compare_attention_kv_cache, verify_gqa_mha_equivalence,
+};
+
+pub use rope::{
+    RopeConfig, RopeFrequencies, YarnConfig, ntk_scaled_base, rope_angle, rotate_pair,
+    verify_relative_position_encoding,
 };
