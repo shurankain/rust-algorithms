@@ -2,6 +2,7 @@
 // Building blocks for Large Language Model inference optimization
 // Based on latest research from ICML 2025 and industry trends
 
+pub mod alibi;
 pub mod flash_attention;
 pub mod grouped_query_attention;
 pub mod kv_cache;
@@ -52,4 +53,10 @@ pub use grouped_query_attention::{
 pub use rope::{
     RopeConfig, RopeFrequencies, YarnConfig, ntk_scaled_base, rope_angle, rotate_pair,
     verify_relative_position_encoding,
+};
+
+pub use alibi::{
+    AlibiAttention, AlibiConfig, AlibiStats, compare_attention_patterns, compute_alibi_slopes,
+    get_alibi_bias_matrix, standard_attention as alibi_standard_attention,
+    verify_alibi_extrapolation,
 };
