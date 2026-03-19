@@ -11,6 +11,7 @@ pub mod paged_attention;
 pub mod radix_attention;
 pub mod rope;
 pub mod sliding_window_attention;
+pub mod speculative_decoding;
 
 pub use flash_attention::{
     FlashAttention, FlashAttentionConfig, FlashAttentionStats, standard_attention,
@@ -59,4 +60,10 @@ pub use alibi::{
     AlibiAttention, AlibiConfig, AlibiStats, compare_attention_patterns, compute_alibi_slopes,
     get_alibi_bias_matrix, standard_attention as alibi_standard_attention,
     verify_alibi_extrapolation,
+};
+
+pub use speculative_decoding::{
+    DraftQualityAnalysis, SpeculativeConfig, SpeculativeDecoder, SpeculativeResult,
+    SpeculativeStats, SpeculativeTree, analyze_draft_quality, build_speculative_tree,
+    compute_expected_acceptance_rate,
 };
