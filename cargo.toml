@@ -19,5 +19,6 @@ members = [
     "sampling",
     "parallel",
     "vector_search",
-    "llm_primitives"
+    "llm_primitives",
+    "distributed"
 ]
