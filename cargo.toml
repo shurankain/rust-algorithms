@@ -20,5 +20,6 @@ members = [
     "parallel",
     "vector_search",
     "llm_primitives",
-    "distributed"
+    "distributed",
+    "gnn"
 ]
