@@ -2,6 +2,7 @@
 // Essential algorithms for building scalable distributed systems
 
 pub mod consistent_hashing;
+pub mod jump_consistent_hash;
 pub mod rendezvous_hashing;
 
 pub use consistent_hashing::{
@@ -15,4 +16,11 @@ pub use rendezvous_hashing::{
     calculate_load_std_dev as rendezvous_load_std_dev,
     compare_with_modulo_hashing as rendezvous_compare_with_modulo, expected_keys_moved_on_add,
     expected_keys_moved_on_remove,
+};
+
+pub use jump_consistent_hash::{
+    JumpConsistentHash, JumpHashRouter, JumpHashStats, analyze_jump_pattern,
+    calculate_load_imbalance as jump_load_imbalance, calculate_load_std_dev as jump_load_std_dev,
+    compare_with_modulo_hashing as jump_compare_with_modulo, expected_keys_moved, jump_hash,
+    jump_hash_key, jump_hash_seeded, verify_monotonicity,
 };
