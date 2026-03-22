@@ -3,6 +3,7 @@
 
 pub mod consistent_hashing;
 pub mod jump_consistent_hash;
+pub mod merkle_tree;
 pub mod raft;
 pub mod rendezvous_hashing;
 pub mod vector_clock;
@@ -37,4 +38,10 @@ pub use vector_clock::{
     CausalOrder, DottedVersionVector, Event, Process, ProcessId, Timestamp, VectorClock,
     VectorClockStats, analyze_events, build_causality_graph, causal_sort, compare_events,
     find_concurrent,
+};
+
+pub use merkle_tree::{
+    ConsistencyProof, HashValue, MerkleNode, MerkleProof, MerkleStats, MerkleTree, ProofDirection,
+    ProofStep, SparseMerkleProof, SparseMerkleTree, TreeDiff, analyze_tree, combine_hashes,
+    expected_proof_size, hash_data, verify_proof,
 };
