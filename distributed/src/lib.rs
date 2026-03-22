@@ -5,6 +5,7 @@ pub mod consistent_hashing;
 pub mod jump_consistent_hash;
 pub mod raft;
 pub mod rendezvous_hashing;
+pub mod vector_clock;
 
 pub use consistent_hashing::{
     ConsistentHash, ConsistentHashConfig, ConsistentHashStats, Node, SimpleConsistentHash,
@@ -30,4 +31,10 @@ pub use raft::{
     AppendEntries, AppendEntriesResponse, LeaderState, LogEntry, LogIndex, Message, NodeId,
     NodeState, PersistentState, RaftCluster, RaftConfig, RaftNode, RaftStats, RequestVote,
     RequestVoteResponse, Term, VolatileState,
+};
+
+pub use vector_clock::{
+    CausalOrder, DottedVersionVector, Event, Process, ProcessId, Timestamp, VectorClock,
+    VectorClockStats, analyze_events, build_causality_graph, causal_sort, compare_events,
+    find_concurrent,
 };
