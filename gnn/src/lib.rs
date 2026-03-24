@@ -2,6 +2,7 @@
 // Foundational algorithms for GNN implementations
 
 pub mod graph_attention;
+pub mod graphsage_sampling;
 pub mod message_passing;
 
 pub use message_passing::{
@@ -14,4 +15,9 @@ pub use message_passing::{
 pub use graph_attention::{
     AttentionHead, AttentionStats, AttentionWeights, GATConfig, GATNetwork, GraphAttentionLayer,
     analyze_attention, apply_elu, attention_entropy, elu, is_attention_peaked,
+};
+
+pub use graphsage_sampling::{
+    GraphSAGE, GraphSAGELayer, NeighborSampler, SAGEAggregator, SampledSubgraph, SamplingConfig,
+    SamplingStats, SamplingStrategy, analyze_sampling, create_batches,
 };
