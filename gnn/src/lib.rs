@@ -4,6 +4,7 @@
 pub mod graph_attention;
 pub mod graphsage_sampling;
 pub mod message_passing;
+pub mod pagerank;
 pub mod random_walk;
 
 pub use message_passing::{
@@ -27,4 +28,9 @@ pub use random_walk::{
     RandomWalkConfig, RandomWalkWithRestart, RandomWalker, SimpleRng, Walk, WalkStats,
     WalkStrategy, analyze_walks, compute_cooccurrence, compute_transition_matrix,
     compute_visit_frequency, generate_skipgram_pairs, negative_sample,
+};
+
+pub use pagerank::{
+    ApproximatePPR, PageRank, PageRankConfig, PageRankResult, PageRankStats, PersonalizedPageRank,
+    TopicSensitivePageRank, analyze_pagerank, pagerank_similarity, structural_similarity,
 };
