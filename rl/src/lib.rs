@@ -5,6 +5,7 @@ pub mod dpo;
 pub mod grpo;
 pub mod policy_gradient;
 pub mod ppo;
+pub mod q_learning;
 
 pub use policy_gradient::{
     ActorCritic, GAE, LinearValueFunction, PolicyAnalysis, PolicyGradientConfig,
@@ -25,4 +26,10 @@ pub use dpo::{
 pub use grpo::{
     GRPO, GRPOAnalysis, GRPOConfig, GRPOStats, GroupSample, GroupStats, OnlineGRPO,
     RewardWeightedGRPO, SampleGroup, analyze_grpo_training, generate_groups, group_statistics,
+};
+
+pub use q_learning::{
+    DiscreteState, DoubleQLearning, EligibilityTraces, ExpectedSARSA, NStepQLearning, QLambda,
+    QLearning, QLearningAnalysis, QLearningConfig, QLearningStats, QTable, SARSA,
+    analyze_q_learning, run_episode,
 };
