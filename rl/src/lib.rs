@@ -1,6 +1,7 @@
 // Reinforcement Learning Algorithms
 // Core RL algorithms relevant for RLHF and agent training
 
+pub mod dpo;
 pub mod policy_gradient;
 pub mod ppo;
 
@@ -13,4 +14,9 @@ pub use policy_gradient::{
 pub use ppo::{
     PPO, PPOAnalysis, PPOBuffer, PPOClippedValue, PPOConfig, PPOStats, RolloutBuffer,
     RolloutSample, analyze_ppo_training, clipped_surrogate, compute_ratio,
+};
+
+pub use dpo::{
+    DPO, DPOAnalysis, DPOConfig, DPOStats, IPO, KTO, PreferencePair, analyze_dpo_training,
+    generate_preferences_from_reward, log_sigmoid_stable, sigmoid_stable,
 };
