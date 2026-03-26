@@ -2,6 +2,7 @@
 // Core RL algorithms relevant for RLHF and agent training
 
 pub mod dpo;
+pub mod grpo;
 pub mod policy_gradient;
 pub mod ppo;
 
@@ -19,4 +20,9 @@ pub use ppo::{
 pub use dpo::{
     DPO, DPOAnalysis, DPOConfig, DPOStats, IPO, KTO, PreferencePair, analyze_dpo_training,
     generate_preferences_from_reward, log_sigmoid_stable, sigmoid_stable,
+};
+
+pub use grpo::{
+    GRPO, GRPOAnalysis, GRPOConfig, GRPOStats, GroupSample, GroupStats, OnlineGRPO,
+    RewardWeightedGRPO, SampleGroup, analyze_grpo_training, generate_groups, group_statistics,
 };
