@@ -21,5 +21,6 @@ members = [
     "vector_search",
     "llm_primitives",
     "distributed",
-    "gnn"
+    "gnn",
+    "rl"
 ]

@@ -1,0 +1,10 @@
+[package]
+name = "rl"
+version = "0.1.0"
+edition = "2024"
+description = "Reinforcement Learning algorithms for educational purposes"
+license = "MIT"
+
+[dependencies]
+
+[dev-dependencies]
