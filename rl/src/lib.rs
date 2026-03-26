@@ -2,6 +2,7 @@
 // Core RL algorithms relevant for RLHF and agent training
 
 pub mod dpo;
+pub mod dqn;
 pub mod grpo;
 pub mod policy_gradient;
 pub mod ppo;
@@ -32,4 +33,10 @@ pub use q_learning::{
     DiscreteState, DoubleQLearning, EligibilityTraces, ExpectedSARSA, NStepQLearning, QLambda,
     QLearning, QLearningAnalysis, QLearningConfig, QLearningStats, QTable, SARSA,
     analyze_q_learning, run_episode,
+};
+
+pub use dqn::{
+    DQN, DQNConfig, DQNStats, DuelingQNetwork, PrioritizedDQN, PrioritizedReplayBuffer,
+    PrioritizedReplayConfig, QNetwork, QNetworkGradient, ReplayBuffer, ReplayBufferConfig,
+    Transition, compute_n_step_returns, huber_loss, huber_loss_grad,
 };
