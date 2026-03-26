@@ -3,6 +3,7 @@
 
 pub mod graph_attention;
 pub mod graphsage_sampling;
+pub mod laplacian;
 pub mod message_passing;
 pub mod pagerank;
 pub mod random_walk;
@@ -33,4 +34,10 @@ pub use random_walk::{
 pub use pagerank::{
     ApproximatePPR, PageRank, PageRankConfig, PageRankResult, PageRankStats, PersonalizedPageRank,
     TopicSensitivePageRank, analyze_pagerank, pagerank_similarity, structural_similarity,
+};
+
+pub use laplacian::{
+    ChebyshevFilter, DenseMatrix, GraphLaplacian, LaplacianConfig, LaplacianStats, LaplacianType,
+    SparseEntry, SparseMatrix, analyze_laplacian, apply_laplacian, compute_laplacian_eigenvalues,
+    dirichlet_energy, estimate_algebraic_connectivity, feature_smoothness, heat_diffusion,
 };
