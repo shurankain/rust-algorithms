@@ -22,5 +22,6 @@ members = [
     "llm_primitives",
     "distributed",
     "gnn",
-    "rl"
+    "rl",
+    "moe"
 ]
