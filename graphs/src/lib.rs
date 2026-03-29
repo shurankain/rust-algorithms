@@ -1,6 +1,7 @@
 pub mod a_star;
 pub mod bellman_ford;
 pub mod bfs;
+pub mod d_star_lite;
 pub mod dfs;
 pub mod dijkstra;
 pub mod floyd_warshall;
@@ -23,3 +24,6 @@ pub use jps::{
 pub use theta_star::{
     BasicAStar, ThetaStar, ThetaStarResult, compare_algorithms, theta_star_find_path,
 };
+
+// Re-export D* Lite types for convenience
+pub use d_star_lite::{DStarLite, DStarResult, DynamicGrid, d_star_lite_find_path};
