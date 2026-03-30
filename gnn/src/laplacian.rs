@@ -184,10 +184,10 @@ impl GraphLaplacian {
         let n = graph.num_nodes();
         let mut degrees = vec![0.0; n];
 
-        for i in 0..n {
-            degrees[i] = graph.degree(i) as f64;
+        for (i, degree) in degrees.iter_mut().enumerate() {
+            *degree = graph.degree(i) as f64;
             if self.config.add_self_loops {
-                degrees[i] += 1.0; // Self-loop adds 1 to degree
+                *degree += 1.0; // Self-loop adds 1 to degree
             }
         }
 
@@ -234,9 +234,9 @@ impl GraphLaplacian {
         let n = graph.num_nodes();
         let mut laplacian = SparseMatrix::new(n, n);
 
-        for i in 0..n {
+        for (i, &deg) in degrees.iter().enumerate() {
             // Diagonal: degree
-            laplacian.add(i, i, degrees[i]);
+            laplacian.add(i, i, deg);
 
             // Off-diagonal: -1 for edges
             for &(neighbor, _) in graph.neighbors(i) {
@@ -307,19 +307,19 @@ impl GraphLaplacian {
             })
             .collect();
 
-        for i in 0..n {
+        for (i, &inv) in d_inv.iter().enumerate() {
             // Diagonal: 1 (from I)
             laplacian.add(i, i, 1.0);
 
             // Off-diagonal: -D^(-1) * A
             for &(neighbor, _) in graph.neighbors(i) {
-                let value = -d_inv[i];
+                let value = -inv;
                 laplacian.add(i, neighbor, value);
             }
 
             // Self-loop contribution
             if self.config.add_self_loops {
-                let value = -d_inv[i];
+                let value = -inv;
                 laplacian.add(i, i, value);
             }
         }

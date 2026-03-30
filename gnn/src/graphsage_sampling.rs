@@ -538,11 +538,11 @@ impl GraphSAGELayer {
         let adjacency = subgraph.build_adjacency();
         let mut new_features = NodeFeatures::new(subgraph.num_nodes(), self.output_dim);
 
-        for local_idx in 0..subgraph.num_nodes() {
+        for (local_idx, neighbors) in adjacency.iter().enumerate() {
             let self_feat = node_features.get(local_idx);
 
             // Get neighbor features
-            let neighbor_features: Vec<Features> = adjacency[local_idx]
+            let neighbor_features: Vec<Features> = neighbors
                 .iter()
                 .map(|&neigh_idx| node_features.get(neigh_idx).clone())
                 .collect();

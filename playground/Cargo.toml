@@ -17,3 +17,13 @@ geometry = { path = "../geometry" }
 crypto = { path = "../crypto" }
 ml_basics = { path = "../ml_basics" }
 shared_utils = { path = "../shared_utils" }
+ai_search = { path = "../ai_search" }
+distributed = { path = "../distributed" }
+gnn = { path = "../gnn" }
+llm_primitives = { path = "../llm_primitives" }
+mapf = { path = "../mapf" }
+moe = { path = "../moe" }
+parallel = { path = "../parallel" }
+rl = { path = "../rl" }
+sampling = { path = "../sampling" }
+vector_search = { path = "../vector_search" }

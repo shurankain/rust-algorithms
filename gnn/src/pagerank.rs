@@ -190,7 +190,7 @@ impl PageRank {
             let dangling_contrib = self.config.damping * dangling_sum / n as f64;
 
             // Compute new scores
-            for i in 0..n {
+            for (i, new_score) in new_scores.iter_mut().enumerate() {
                 let mut rank_sum = 0.0;
 
                 // Sum contributions from incoming edges
@@ -201,7 +201,7 @@ impl PageRank {
                     }
                 }
 
-                new_scores[i] = teleport + self.config.damping * rank_sum + dangling_contrib;
+                *new_score = teleport + self.config.damping * rank_sum + dangling_contrib;
             }
 
             // Compute convergence (L1 norm of change)
