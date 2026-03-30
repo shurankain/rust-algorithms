@@ -639,7 +639,7 @@ mod tests {
 
     #[test]
     fn test_odd_even_merge_sort_with_custom_comparator() {
-        let mut arr = vec![3.14_f64, 1.41, 2.72, 1.73, 0.58, 2.23, 1.62, 0.69];
+        let mut arr = vec![3.15_f64, 1.41, 2.72, 1.73, 0.58, 2.23, 1.62, 0.69];
         odd_even_merge_sort_by(&mut arr, |a, b| a.partial_cmp(b).unwrap());
 
         for i in 1..arr.len() {

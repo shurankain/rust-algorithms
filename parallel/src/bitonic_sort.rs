@@ -594,7 +594,7 @@ mod tests {
     #[test]
     fn test_bitonic_sort_with_custom_comparator() {
         // Use custom comparator for floats since f64 doesn't implement Ord
-        let mut arr = vec![3.14_f64, 1.41, 2.72, 1.73, 0.58, 2.23, 1.62, 0.69];
+        let mut arr = vec![3.15_f64, 1.41, 2.72, 1.73, 0.58, 2.23, 1.62, 0.69];
         bitonic_sort_by(&mut arr, |a, b| a.partial_cmp(b).unwrap());
 
         // Verify sorted
